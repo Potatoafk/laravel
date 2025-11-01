@@ -11,12 +11,6 @@ class SampleController extends Controller
         return view('landing');
     }
 
-    public function list() {
-        //
-    }
-
-
-
     public function post(Request $request){
         $incomingFields = $request->validate([
             'email' => 'required',
@@ -27,6 +21,6 @@ class SampleController extends Controller
             'email' => $incomingFields['email'],
             'password' => bcrypt($incomingFields['password'])
         ]);
-        return 'created';
+        return view('read.read');
     }
 }
